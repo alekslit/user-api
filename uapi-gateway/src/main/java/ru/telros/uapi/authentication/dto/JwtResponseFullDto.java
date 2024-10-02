@@ -1,0 +1,23 @@
+package ru.telros.uapi.authentication.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@Getter
+@ToString
+@Builder
+@Schema(description = "Пара токенов для аутентификации пользователя")
+public final class JwtResponseFullDto {
+    @Schema(description = "Тип токена", example = "Bearer")
+    private final String type = "Bearer";
+
+    @Schema(description = "Access токен", example = "(многочисленный набор символов)")
+    private final String accessToken;
+
+    @Schema(description = "Refresh токен", example = "(многочисленный набор символов)")
+    private final String refreshToken;
+}
